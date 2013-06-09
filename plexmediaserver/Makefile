@@ -5,7 +5,7 @@ PORTVERSION=	0.9.7.23.0
 CATEGORIES=	multimedia
 MASTER_SITES=	http://www.plexapp.com/elan/
 DISTFILES=	PlexMediaServer-${PORTVERSION}-${GH_COMMIT}.tar.bz2
-SUPPORT_PATH?=	{PREFIX}/lib
+SUPPORT_PATH?=	${PREFIX}/lib
 
 MAINTAINER=	plexmaintainer@k-moeller.dk
 COMMENT=	Plex Media Server
