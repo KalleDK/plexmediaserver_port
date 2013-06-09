@@ -3042,8 +3042,8 @@ share/plexmediaserver/libmediainfo.so.0
 share/plexmediaserver/libminiupnpc.so.8
 share/plexmediaserver/libmp3lame.so.0
 share/plexmediaserver/libnatpmp.so.1
-share/plexmediaserver/libpython2.7.so.1
 share/plexmediaserver/libpython2.7.so
+share/plexmediaserver/libpython2.7.so.1
 share/plexmediaserver/librtmp.so.0
 share/plexmediaserver/libsoci_core-gcc-3_0.so.3.0.0
 share/plexmediaserver/libsoci_sqlite3-gcc-3_0.so.3.0.0
@@ -3874,20 +3874,20 @@ share/plexmediaserver/start.sh
 @dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/routes
 @dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/pyamf/util
 @dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/pyamf/remoting/gateway
-@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resour
-@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resour
-@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resour
-@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resour
-@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resour
-@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resour
-@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resour
-@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resour
-@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resour
-@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resour
-@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resour
-@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resour
-@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resour
-@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resour
+@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/pyamf/remoting/client
+@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/pyamf/remoting
+@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/pyamf/flex
+@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/pyamf/adapters
+@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/pyamf
+@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/dateutil/zoneinfo
+@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/dateutil
+@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/cerealizer
+@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/RestrictedPython/tests
+@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries/RestrictedPython
+@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources/Platforms/Shared/Libraries
+@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources/Platforms/Shared
+@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources/Platforms
+@dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents/Resources
 @dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle/Contents
 @dirrm share/plexmediaserver/Resources/Plug-ins/Framework.bundle
 @dirrm share/plexmediaserver/Resources/Plug-ins
