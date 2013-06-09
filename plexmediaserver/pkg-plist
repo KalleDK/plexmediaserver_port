@@ -3064,6 +3064,7 @@ share/plexmediaserver/start.sh
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/wsgiref
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/unittest/test
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/unittest
+@exec mkdir -p %D/share/plexmediaserver/Resources/Python/lib/python2.7/test
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/test
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/sqlite3/test
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/sqlite3
@@ -3089,18 +3090,23 @@ share/plexmediaserver/start.sh
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/lib2to3/pgen2
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/lib2to3/fixes
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/lib2to3
+@exec mkdir -p %D/share/plexmediaserver/Resources/Python/lib/python2.7/lib-tk
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/lib-tk
+@exec mkdir -p %D/share/plexmediaserver/Resources/Python/lib/python2.7/lib-old
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/lib-old
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/lib-dynload
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/json/tests
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/json
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/importlib
+@exec mkdir -p %D/share/plexmediaserver/Resources/Python/lib/python2.7/idlelib
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/idlelib
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/hotshot
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/encodings
+@exec mkdir -p %D/share/plexmediaserver/Resources/Python/lib/python2.7/email/test
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/email/test
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/email/mime
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/email
+@exec mkdir -p %D/share/plexmediaserver/Resources/Python/lib/python2.7/distutils
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/distutils
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/curses
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/ctypes/test
@@ -3108,6 +3114,7 @@ share/plexmediaserver/start.sh
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/ctypes
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/config
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/compiler
+@exec mkdir -p %D/share/plexmediaserver/Resources/Python/lib/python2.7/bsddb
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7/bsddb
 @dirrm share/plexmediaserver/Resources/Python/lib/python2.7
 @dirrm share/plexmediaserver/Resources/Python/lib
@@ -3893,7 +3900,9 @@ share/plexmediaserver/start.sh
 @dirrm share/plexmediaserver/Resources/Plug-ins
 @dirrm share/plexmediaserver/Resources/Graphics/.AppleDouble
 @dirrm share/plexmediaserver/Resources/Graphics
+@exec mkdir -p %D/share/plexmediaserver/Resources/English.lproj
 @dirrm share/plexmediaserver/Resources/English.lproj
+@exec mkdir -p %D/share/plexmediaserver/Resources/.AppleDouble
 @dirrm share/plexmediaserver/Resources/.AppleDouble
 @dirrm share/plexmediaserver/Resources
 @dirrm share/plexmediaserver
