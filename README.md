@@ -16,3 +16,9 @@ plexmediaserver_enable="YES"
 plexmediaserver_support_path="/usr/local/lib"
 plexmediaserver_script_path="/usr/local/share/plexmediaserver/share/plexmediaserver"
 ```
+
+###Package install
+
+```no-highlight
+pkg_add plexmediaserver-0.9.7.23.0.tbz
+```
