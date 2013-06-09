@@ -21,7 +21,7 @@ PIDFILE=${plexmediaserver_support_path}/Plex\ Media\ Server/plexmediaserver.pid
 
 plexmediaserver_start() {
 	if [ -f "$PIDFILE" ]; then
-		echo "Plex Media Server already running with pid: `cat $PIDFILE`"
+		echo "Plex Media Server already running with pid: `cat "$PIDFILE"`"
 	else
 		${plexmediaserver_script_path}/start.sh ${plexmediaserver_support_path} > /dev/null 2>&1 &
 	fi
