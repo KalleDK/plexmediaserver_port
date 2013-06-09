@@ -36,5 +36,6 @@ do-install:
 	${CHMOD} a+x ${DATADIR}/Resources/Plex\ New\ Transcoder
 	${CHMOD} a+x ${DATADIR}/Resources/Plex\ Transcoder
 	${CHMOD} a+x ${DATADIR}/Resources/Python/bin/python
+	${LN} -s ${DATADIR}/libpython2.7.so.1 ${DATADIR}/libpython2.7.so
 
 .include <bsd.port.mk>
