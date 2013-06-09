@@ -5,7 +5,7 @@ PORTVERSION=	0.9.7.23.0
 CATEGORIES=	multimedia
 MASTER_SITES=	http://www.plexapp.com/elan/
 DISTFILES=	PlexMediaServer-${PORTVERSION}-${GH_COMMIT}.tar.bz2
-SUPPORT_DIR?=	{PREFIX}/lib
+SUPPORT_PATH?=	{PREFIX}/lib
 
 MAINTAINER=	plexmaintainer@k-moeller.dk
 COMMENT=	Plex Media Server
@@ -15,10 +15,15 @@ GH_COMMIT=	8e6b2a8
 NO_BUILD=	yes
 WRKSRC=		${WRKDIR}/PlexMediaServer-${PORTVERSION}-${GH_COMMIT}
 
+USE_RC_SUBR=	plexmediaserver
+
+SUB_FILES=	plexmediaserver
+SUB_LIST=	SUPPORT_PATH=${SUPPORT_PATH} SCRIPT_PATH="${DATADIR}"
+
 
 post-patch:
-	${REINPLACE_CMD} -e 's|"SCRIPTPATH"|"${DATADIR}"|' ${WRKSRC}/start.sh
-	${REINPLACE_CMD} -e 's|"PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR"|${SUPPORT_DIR}|' ${WRKSRC}/start.sh
+	${REINPLACE_CMD} -e 's|%%SCRIPT_PATH%%|"${DATADIR}"|' ${PATCH_WRKSRC}/start.sh
+	${REINPLACE_CMD} -e 's|%%SUPPORT_PATH%%|"${SUPPORT_PATH}"|' ${PATCH_WRKSRC}/start.sh
 
 do-install:
 	(cd ${WRKSRC} && ${COPYTREE_SHARE} Resources ${DATADIR})
