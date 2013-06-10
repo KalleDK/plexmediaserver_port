@@ -12,6 +12,7 @@ extra_commands="status"
 start_cmd="plexmediaserver_start"
 status_cmd="plexmediaserver_status"
 stop_cmd="plexmediaserver_stop"
+restart_cmd="plexmediaserver_restart"
 
 load_rc_config $name
 : ${plexmediaserver_support_path="%%SUPPORT_PATH%%"}
@@ -60,6 +61,13 @@ plexmediaserver_stop() {
 	else
 		echo "Plex Medis Server is not running"
 	fi
+}
+
+plexmediaserver_restart() {
+
+	plexmediaserver_stop
+	plexmediaserver_start
+
 }
 
 run_rc_command "$1"
