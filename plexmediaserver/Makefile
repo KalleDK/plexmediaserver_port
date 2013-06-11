@@ -72,6 +72,7 @@ do-install:
 	${CHMOD} a+x ${DATADIR}/Resources/Plex\ New\ Transcoder
 	${CHMOD} a+x ${DATADIR}/Resources/Plex\ Transcoder
 	${CHMOD} a+x ${DATADIR}/Resources/Python/bin/python
+	${CHMOD} u+w ${DATADIR}/Resources/com.plexapp.plugins.library.db
 	${LN} -s ${DATADIR}/libpython2.7.so.1 ${DATADIR}/libpython2.7.so
 	${MKDIR} ${SUPPORT_PATH}
 	
