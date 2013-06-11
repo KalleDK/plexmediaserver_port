@@ -40,7 +40,7 @@ plexmediaserver_status() {
 			echo "Plex Media Server is not running"
 		else
 			echo "Plex Media Server is running with pid: `cat "$PIDFILE"`"
-			ps -A -o "pid pgid command" | egrep "^[0-9]+\ $PGID\ "
+			ps -A -o "pid pgid command" | egrep "^[\ ]*[0-9]+[\ ]+$PGID\ "
 		fi
 	else
 		echo "Plex Media Server is not running"
@@ -55,7 +55,7 @@ plexmediaserver_stop() {
 		if [ $? -eq 0 ]; then
 			PGID=`ps -o "pgid=" $PID`
 			echo "Stopping Plex Media Server"
-			ps -A -o "pid pgid command" | egrep "^[0-9]+\ $PGID\ "
+			ps -A -o "pid pgid command" | egrep "^[\ ]*[0-9]+[\ ]+$PGID\ "
 			kill -9 -- -$PGID
 		else
 			echo "Plex Media Server is not running. Pidfile removed"
