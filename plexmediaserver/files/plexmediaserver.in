@@ -21,11 +21,14 @@ load_rc_config $name
 PIDFILE=${plexmediaserver_support_path}/Plex\ Media\ Server/plexmediaserver.pid
 
 plexmediaserver_start() {
+	if [ ! -d "${plexmediaserver_support_path}/Plex Media Server}" ]; then
+		%%START_CMD%%$${plexmediaserver_script_path}/start.sh ${plexmediaserver_support_path} > /dev/null 2>&1
+	fi
 	if [ -f "$PIDFILE" ]; then
 		echo "Plex Media Server already running with pid: `cat "$PIDFILE"`"
 	else
 		echo "Starting Plex Media Server"
-		${plexmediaserver_script_path}/start.sh ${plexmediaserver_support_path} > /dev/null 2>&1 &
+		%%START_CMD%%${plexmediaserver_script_path}/start.sh ${plexmediaserver_support_path} > /dev/null 2>&1 &
 	fi
 }
 
@@ -37,7 +40,7 @@ plexmediaserver_status() {
 			echo "Plex Media Server is not running"
 		else
 			echo "Plex Media Server is running with pid: `cat "$PIDFILE"`"
-			ps -o "pid pgid command" | egrep "^[0-9]+\ $PGID\ "
+			ps -A -o "pid pgid command" | egrep "^[\ ]*[0-9]+[\ ]+$PGID\ "
 		fi
 	else
 		echo "Plex Media Server is not running"
@@ -52,7 +55,7 @@ plexmediaserver_stop() {
 		if [ $? -eq 0 ]; then
 			PGID=`ps -o "pgid=" $PID`
 			echo "Stopping Plex Media Server"
-			ps -o "pid pgid command" | egrep "^[0-9]+\ $PGID\ "
+			ps -A -o "pid pgid command" | egrep "^[\ ]*[0-9]+[\ ]+$PGID\ "
 			kill -9 -- -$PGID
 		else
 			echo "Plex Media Server is not running. Pidfile removed"
