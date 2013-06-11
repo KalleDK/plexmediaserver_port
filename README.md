@@ -8,7 +8,8 @@ https://github.com/KalleDK/plexmediaserver_port/tree/v1.0
 ######(Shown here with default paths)
 
 ```no-highlight
-SUPPORT_PATH=/usr/local/lib
+SUPPORT_PATH=/usr/local/lib/plexdata
+WITH_USER=NO
 ```
 
 ###RC_VAR
@@ -16,7 +17,7 @@ SUPPORT_PATH=/usr/local/lib
 
 ```no-highlight
 plexmediaserver_enable="YES"
-plexmediaserver_support_path="/usr/local/lib"
+plexmediaserver_support_path="/usr/local/lib/plexdata"
 plexmediaserver_script_path="/usr/local/share/plexmediaserver/share/plexmediaserver"
 ```
 
