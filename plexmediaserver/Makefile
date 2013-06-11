@@ -49,7 +49,12 @@ pre-install:
 	fi
 
 	@if ${PW} usershow "${PLEXUSER}" >/dev/null 2>&1; then \
-		${ECHO_MSG} "You already have a user \"${PLEXUSER}\", so I will use it."; \
+		if ${PW} usermod ${PLEXUSER} -d ${SUPPORT_PATH} -s /bin/sh -c "Plex Daemon"; then \
+			${ECHO_MSG} "You already have a user \"${PLEXUSER}\", so I will use it."; \
+		else \
+			${ECHO_MSG} "Couldn't change homedir for ${PLEXUSER}"; \
+			${FALSE}; \
+		fi; \
 	else \
 		if ${PW} useradd ${PLEXUSER} -d ${SUPPORT_PATH} -s /bin/sh -c "Plex Daemon" -h -; then \
 			${ECHO_MSG} "Added user \"${PLEXUSER}\"."; \
