@@ -25,7 +25,7 @@ plexmediaserver_start() {
 		echo "Plex Media Server already running with pid: `cat "$PIDFILE"`"
 	else
 		echo "Starting Plex Media Server"
-		%%START_CMD%% ${plexmediaserver_script_path}/start.sh ${plexmediaserver_support_path} > /dev/null 2>&1 &
+		%%START_CMD%% ${plexmediaserver_support_path} > /dev/null 2>&1 &
 	fi
 }
 
