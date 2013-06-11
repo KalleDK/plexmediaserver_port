@@ -1,6 +1,9 @@
 plexmediaserver_port
 ====================
 
+###Release Version
+https://github.com/KalleDK/plexmediaserver_port/tree/v1.0
+
 ###Make options
 ######(Shown here with default paths)
 
