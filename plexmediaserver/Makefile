@@ -25,9 +25,9 @@ PLEXUSER=	plex
 PLEXGROUP=	plex
 
 .if defined(WITH_USER)
-START_CMD=	"su\ -l\ plex\ ${plexmediaserver_script_path}/start.sh"
+START_CMD=	"su\ -l\ plex\ "
 .else
-START_CMD=	"${plexmediaserver_script_path}/start.sh"
+START_CMD=	""
 .endif
 
 post-patch:
