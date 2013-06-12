@@ -1,8 +1,14 @@
 plexmediaserver_port
 ====================
 
-###Release Version
-https://github.com/KalleDK/plexmediaserver_port/tree/v1.0
+##Install
+
+```no-highlight
+fetch https://github.com/KalleDK/plexmediaserver_port/raw/master/tarball/plexmediaserver.tar.gz
+tar zxvf plexmediaserver.tar.gz
+cd plexmediaserver
+make WITH_USER install
+```
 
 ###Make options
 ######(Shown here with default paths)
