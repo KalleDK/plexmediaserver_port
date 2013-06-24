@@ -1,6 +1,6 @@
 --- start.sh.orig	2013-04-16 15:51:41.000000000 +0200
-+++ start.sh	2013-06-09 00:59:17.139580510 +0200
-@@ -1,11 +1,15 @@
++++ start.sh	2013-06-24 11:48:53.000000000 +0200
+@@ -1,11 +1,16 @@
  #!/bin/sh
 -#SCRIPTPATH=$(dirname $(python -c 'import sys,os;print os.path.realpath(sys.argv[1])' $0))
 -SCRIPT=$(readlink -f $0)
@@ -17,6 +17,7 @@
 -export LC_ALL="en_US.UTF-8"
 -export LANG="en_US.UTF-8"
 +export PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR=$SUPPORT_PATH
++export PATH="${SCRIPTPATH}/Resources/Python/bin:$PATH"
 +export LC_ALL="C"
 +export LANG="C"
  ulimit -s 3000
