@@ -23,8 +23,8 @@ WITH_USER=NO
 
 ```no-highlight
 plexmediaserver_enable="YES"
-plexmediaserver_support_path="/usr/local/lib/plexdata"
-plexmediaserver_script_path="/usr/local/share/plexmediaserver"
+plexmediaserver_support_path="/usr/local/lib/plexdata"  (optional)
+plexmediaserver_script_path="/usr/local/share/plexmediaserver" (optional)
 ```
 
 ###Package install
