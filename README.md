@@ -4,9 +4,9 @@ plexmediaserver_port
 ##Install
 
 ```no-highlight
-fetch https://github.com/KalleDK/plexmediaserver_port/raw/master/tarball/plexmediaserver.tar.gz
-tar zxvf plexmediaserver.tar.gz
-cd plexmediaserver
+fetch -o plexmediaserver_port-1.4.tar.gz https://github.com/KalleDK/plexmediaserver_port/archive/v1.4.tar.gz
+tar zxvf plexmediaserver_port-1.4.tar.gz
+cd plexmediaserver_port-1.4
 make WITH_USER install
 ```
 
