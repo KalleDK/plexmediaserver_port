@@ -18,17 +18,11 @@ WRKSRC=		${WRKDIR}/PlexMediaServer-${PORTVERSION}-${GH_COMMIT}
 USE_RC_SUBR=	plexmediaserver
 
 SUB_FILES=	plexmediaserver
-SUB_LIST=	SUPPORT_PATH=${SUPPORT_PATH} SCRIPT_PATH="${DATADIR}" START_CMD="${START_CMD}"
+SUB_LIST=	SUPPORT_PATH=${SUPPORT_PATH} SCRIPT_PATH="${DATADIR}"
 
 USERS=	plex
 GROUPS=	plex
 SUPPORT_PATH?=	${PREFIX}/lib/plexdata
-
-.if defined(WITH_USER)
-START_CMD=	"su\ -l\ plex\ "
-.else
-START_CMD=	""
-.endif
 
 post-patch:
 	${REINPLACE_CMD} -e 's|%%SCRIPT_PATH%%|"${DATADIR}"|' ${PATCH_WRKSRC}/start.sh
@@ -47,11 +41,14 @@ do-install:
 	${CHMOD} a+x ${DATADIR}/Resources/Python/bin/python
 	${CHMOD} u+w ${DATADIR}/Resources/com.plexapp.plugins.library.db
 	${LN} -s ${DATADIR}/libpython2.7.so.1 ${DATADIR}/libpython2.7.so
-	${INSTALL} -d ${SUPPORT_PATH}
-
-post-install:
-.if defined(WITH_USER)
-	${CHOWN} -R ${USERS}:${GROUPS} ${SUPPORT_PATH}
-.endif
+	${INSTALL} -d -o ${USERS} -g ${GROUPS} ${SUPPORT_PATH}
+	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/English.lproj   
+	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/Python/lib/python2.7/test
+	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/Python/lib/python2.7/lib-tk
+	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/Python/lib/python2.7/lib-old
+	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/Python/lib/python2.7/idlelib
+	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/Python/lib/python2.7/email/test
+	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/Python/lib/python2.7/distutils
+	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/Python/lib/python2.7/bsddb
 
 .include <bsd.port.mk>

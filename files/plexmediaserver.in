@@ -68,7 +68,7 @@ plexmediaserver_stop()
 		fi
 		rm "$PIDFILE"
 	else
-		echo "Plex Medis Server is not running"
+		echo "Plex Media Server is not running"
 	fi
 }
 
