@@ -47,7 +47,7 @@ plexmediaserver_status()
 	fi
 
 	if pgrep -F ${pidfile} >/dev/null; then
-	echo "${name} is running with pid: $(cat "${pidfile})";
+	echo "${name} is running with pid: $(cat "${pidfile}")";
 	else
 		echo "${name} is not running.";
 	exit 1;
