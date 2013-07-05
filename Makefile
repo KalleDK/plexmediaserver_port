@@ -18,11 +18,11 @@ WRKSRC=		${WRKDIR}/PlexMediaServer-${PORTVERSION}-${GH_COMMIT}
 USE_RC_SUBR=	plexmediaserver
 
 SUB_FILES=	plexmediaserver
-SUB_LIST=	SUPPORT_PATH=${SUPPORT_PATH} SCRIPT_PATH="${DATADIR}"
+SUB_LIST=	SUPPORT_PATH=${SUPPORT_PATH} SCRIPT_PATH="${DATADIR}" USERS=%{USERS}
 
 USERS=	plex
 GROUPS=	plex
-SUPPORT_PATH?=	${PREFIX}/lib/plexdata
+SUPPORT_PATH?=	${DATADIR}/plexdata
 
 post-patch:
 	${REINPLACE_CMD} -e 's|%%SCRIPT_PATH%%|"${DATADIR}"|' ${PATCH_WRKSRC}/start.sh
@@ -41,8 +41,8 @@ do-install:
 	${CHMOD} a+x ${DATADIR}/Resources/Python/bin/python
 	${CHMOD} u+w ${DATADIR}/Resources/com.plexapp.plugins.library.db
 	${LN} -s ${DATADIR}/libpython2.7.so.1 ${DATADIR}/libpython2.7.so
-	${INSTALL} -d -o ${USERS} -g ${GROUPS} ${SUPPORT_PATH}
-	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/English.lproj   
+	${INSTALL} -d -o ${USERS} -g ${GROUPS} "${SUPPORT_PATH}/Plex Media Server"
+	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/English.lproj
 	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/Python/lib/python2.7/test
 	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/Python/lib/python2.7/lib-tk
 	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/Python/lib/python2.7/lib-old

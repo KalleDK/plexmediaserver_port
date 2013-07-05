@@ -6,6 +6,11 @@
 # PROVIDE: plexmediaserver
 # REQUIRE: LOGIN
 # KEYWORD: shutdown
+#
+# Add the following lines to /etc/rc.conf to enable the Plex Media Server:
+#
+# plexmediaserver_enable="YES"
+#
 
 . /etc/rc.subr
 
@@ -15,60 +20,49 @@ load_rc_config $name
 
 : ${plexmediaserver_support_path="%%SUPPORT_PATH%%"}
 : ${plexmediaserver_script_path="%%SCRIPT_PATH%%"}
+: ${plexmediaserver_user="%%USERS%%"}
 
 start_cmd=plexmediaserver_start
 status_cmd=plexmediaserver_status
 stop_cmd=plexmediaserver_stop
 extra_commands=status
-
-PIDFILE=${plexmediaserver_support_path}/Plex\ Media\ Server/plexmediaserver.pid
+pidfile="${plexmediaserver_support_path}/Plex Media Server/plexmediaserver.pid"
 
 plexmediaserver_start()
 {
-	if [ ! -d "${plexmediaserver_support_path}/Plex Media Server}" ]; then
-		%%START_CMD%%$${plexmediaserver_script_path}/start.sh ${plexmediaserver_support_path} > /dev/null 2>&1
-	fi
-	if [ -f "$PIDFILE" ]; then
-		echo "Plex Media Server already running with pid: `cat "$PIDFILE"`"
+	if [ -f "$pidfile" ]; then
+		echo "Plex Media Server already running with pid: $(cat "$pidfile")"
 	else
 		echo "Starting Plex Media Server"
-		%%START_CMD%%${plexmediaserver_script_path}/start.sh ${plexmediaserver_support_path} > /dev/null 2>&1 &
+		export HOME=$(eval printf ~${plexmediaserver_user})
+		daemon -u ${plexmediaserver_user} ${plexmediaserver_script_path}/start.sh ${plexmediaserver_support_path}
 	fi
 }
 
 plexmediaserver_status()
 {
-	if [ -f "$PIDFILE" ]; then
-		PID=`cat "$PIDFILE"`
-		PGID=`ps -o "pgid=" $PID`
-		if [ -z "$PGID" ]; then
-			echo "Plex Media Server is not running"
-		else
-			echo "Plex Media Server is running with pid: `cat "$PIDFILE"`"
-			ps -A -o "pid pgid command" | egrep "^[\ ]*[0-9]+[\ ]+$PGID\ "
-		fi
+        if [ ! -e ${pidfile} ]; then
+	echo "pidfile does not exist. ${name} is not running?";
+        	exit 1;
+	fi
+
+	if pgrep -F ${pidfile} >/dev/null; then
+	echo "${name} is running with pid: $(cat "${pidfile})";
 	else
-		echo "Plex Media Server is not running"
+		echo "${name} is not running.";
+	exit 1;
 	fi
 }
 
 plexmediaserver_stop()
 {
-	if [ -f "$PIDFILE" ]; then
-		PID=`cat "$PIDFILE"`
-		PID_CMD=`ps -o "command=" $PID`
-		echo $PID_CMD | grep -q Plex
-		if [ $? -eq 0 ]; then
-			PGID=`ps -o "pgid=" $PID`
-			echo "Stopping Plex Media Server"
-			ps -A -o "pid pgid command" | egrep "^[\ ]*[0-9]+[\ ]+$PGID\ "
-			kill -9 -- -$PGID
-		else
-			echo "Plex Media Server is not running. Pidfile removed"
-		fi
-		rm "$PIDFILE"
+        if pgrep -F "${pidfile}" >/dev/null; then
+		mypid=$(cat "${pidfile}");
+		kill ${sig_stop} ${mypid};
+		wait_for_pids ${mypid};
 	else
-		echo "Plex Media Server is not running"
+		echo "${name} is not running.";
+	exit 1;
 	fi
 }
 
