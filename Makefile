@@ -11,7 +11,7 @@ MAINTAINER=	plexmaintainer@k-moeller.dk
 COMMENT=	Plex Media Server
 
 NO_BUILD=	yes
-WRKSRC=		${WRKDIR}/PlexMediaServer-${PORTVERSION}-${GH_COMMIT}
+WRKSRC=	${WRKDIR}/PlexMediaServer-${PORTVERSION}-8e6b2a8
 
 USE_RC_SUBR=	plexmediaserver
 
