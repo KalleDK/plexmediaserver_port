@@ -30,7 +30,7 @@ pidfile="${plexmediaserver_support_path}/Plex Media Server/plexmediaserver.pid"
 
 plexmediaserver_start()
 {
-	if pgrep -F "${pidfile}" >/dev/null; then
+	if pgrep -q -F "${pidfile}" >/dev/null; then
 		echo "${name} already running with pid: $(cat "$pidfile")"
 	else
 		echo "Starting ${name}"
@@ -41,7 +41,7 @@ plexmediaserver_start()
 
 plexmediaserver_status()
 {
-	if pgrep -F "${pidfile}" >/dev/null; then
+	if pgrep -q -F "${pidfile}" >/dev/null; then
 		echo "${name} is running with pid: $(cat "${pidfile}")";
 	else
 		echo "${name} is not running.";
@@ -51,7 +51,7 @@ plexmediaserver_status()
 
 plexmediaserver_stop()
 {
-        if pgrep -F "${pidfile}" >/dev/null; then
+        if pgrep -q -F "${pidfile}" >/dev/null; then
 		mypid=$(cat "${pidfile}");
 		kill ${sig_stop} ${mypid};
 		wait_for_pids ${mypid};
