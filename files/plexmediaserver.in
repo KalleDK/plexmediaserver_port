@@ -35,18 +35,18 @@ plexmediaserver_start()
 	else
 		echo "Starting Plex Media Server"
 		export HOME=$(eval printf ~${plexmediaserver_user})
-		daemon -u ${plexmediaserver_user} ${plexmediaserver_script_path}/start.sh ${plexmediaserver_support_path}
+		daemon -u ${plexmediaserver_user} -f ${plexmediaserver_script_path}/start.sh ${plexmediaserver_support_path}
 	fi
 }
 
 plexmediaserver_status()
 {
-        if [ ! -e ${pidfile} ]; then
+        if [ ! -e "${pidfile}" ]; then
 	echo "pidfile does not exist. ${name} is not running?";
         	exit 1;
 	fi
 
-	if pgrep -F ${pidfile} >/dev/null; then
+	if pgrep -F "${pidfile}" >/dev/null; then
 	echo "${name} is running with pid: $(cat "${pidfile}")";
 	else
 		echo "${name} is not running.";
