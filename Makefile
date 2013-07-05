@@ -5,12 +5,10 @@ PORTNAME=	plexmediaserver
 PORTVERSION=	0.9.7.23.0
 CATEGORIES=	multimedia
 MASTER_SITES=	http://www.plexapp.com/elan/
-DISTFILES=	PlexMediaServer-${PORTVERSION}-${GH_COMMIT}.tar.bz2
+DISTFILES=	PlexMediaServer-${PORTVERSION}-8e6b2a8.tar.bz2
 
 MAINTAINER=	plexmaintainer@k-moeller.dk
 COMMENT=	Plex Media Server
-
-GH_COMMIT=	8e6b2a8
 
 NO_BUILD=	yes
 WRKSRC=		${WRKDIR}/PlexMediaServer-${PORTVERSION}-${GH_COMMIT}
