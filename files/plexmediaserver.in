@@ -31,8 +31,8 @@ pidfile=/var/run/plex.pid
 
 plex_precmd()
 {
-	export HOME=$(eval "printf ~${plexmediaserver_user}")
 	export SUPPORT_PATH="%%DATADIR%%/plexdata"
+	export HOME="${SUPPORT_PATH}/Plex Media Server"
 	export SCRIPTPATH="%%DATADIR%%"
 	export LD_LIBRARY_PATH="${SCRIPTPATH}"
 	export PLEX_MEDIA_SERVER_HOME="${SCRIPTPATH}"
