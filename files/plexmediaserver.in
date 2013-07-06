@@ -27,12 +27,12 @@ start_postcmd=plex_postcmd
 start_cmd=plex_startcmd
 status_cmd=plex_statuscmd
 stop_cmd=plex_stopcmd
-pidfile="/var/run/plex.pid"
+pidfile=/var/run/plex.pid
 
 plex_precmd()
 {
 	export HOME=$(eval "printf ~${plexmediaserver_user}")
-        export SUPPORT_PATH="%%DATADIR%%/plexdata"
+	export SUPPORT_PATH="%%DATADIR%%/plexdata"
 	export SCRIPTPATH="%%DATADIR%%"
 	export LD_LIBRARY_PATH="${SCRIPTPATH}"
 	export PLEX_MEDIA_SERVER_HOME="${SCRIPTPATH}"
@@ -44,7 +44,8 @@ plex_precmd()
 	ulimit -s 3000
 }
 
-plex_startcmd() {
+plex_startcmd()
+{
 	echo "Starting ${name}."
 	/usr/sbin/daemon -u %%USERS%% -f '%%DATADIR%%/Plex Media Server'
 }
