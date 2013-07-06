@@ -1,4 +1,4 @@
-@dirrmtry /var/plexmediaserver
+@dirrmtry /var/plex
 @dirrmtry %%DATADIR%%/plexdata
 @dirrm %%DATADIR%%/plexdata/Plex Media Server
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/xml/sax
