@@ -21,6 +21,14 @@ SUB_LIST=	DATADIR="${DATADIR}" USERS=${USERS}
 USERS=	plex
 GROUPS=	plex
 
+ONLY_FOR_ARCHS=	amd64
+
+.include <bsd.port.pre.mk>
+
+.if ${OSVERSION} < 900000
+	IGNORE= Supplied binaries compiled for FreeBSD 9
+.endif
+
 do-install:
 	(cd ${WRKSRC} && ${COPYTREE_SHARE} Resources ${DATADIR})
 	${INSTALL_PROGRAM} ${WRKSRC}/Plex\ DLNA\ Server ${DATADIR}
@@ -44,4 +52,4 @@ do-install:
 	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/Python/lib/python2.7/distutils
 	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/Python/lib/python2.7/bsddb
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>
