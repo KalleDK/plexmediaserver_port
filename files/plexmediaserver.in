@@ -69,7 +69,7 @@ plex_stopcmd()
 {
 	if pgrep -F "${pidfile}" >/dev/null; then
 		mypid=$(cat ${pidfile});
-		sig_stop=INT;
+		sig_stop=-INT;
 		kill ${sig_stop} ${mypid};
 		wait_for_pids ${mypid};
 	else
