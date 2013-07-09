@@ -27,7 +27,7 @@ start_postcmd=plex_postcmd
 start_cmd=plex_startcmd
 status_cmd=plex_statuscmd
 stop_cmd=plex_stopcmd
-pidfile=/var/run/plex.pid
+pidfile=/var/run/plex/plex.pid
 
 plex_precmd()
 {
@@ -38,23 +38,21 @@ plex_precmd()
 	export PLEX_MEDIA_SERVER_HOME="${SCRIPTPATH}"
 	export PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS=6
 	export PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR=$SUPPORT_PATH
+	export PLEX_MEDIA_SERVER_PIDFILE=${pidfile}
 	export PATH="${SCRIPTPATH}/Resources/Python/bin:$PATH"
 	export LC_ALL="C"
 	export LANG="C"
 	ulimit -s 3000
+
+	if [ ! -d ${pidfile%/*} ]; then
+		install -d -o ${plexmediaserver_user} ${pidfile%/*};
+	fi
 }
 
 plex_startcmd()
 {
 	echo "Starting ${name}."
 	/usr/sbin/daemon -u %%USERS%% -f '%%DATADIR%%/Plex Media Server'
-}
-
-plex_postcmd()
-{
-	if [ -f "%%DATADIR%%/plexdata/Plex Media Server/plexmediaserver.pid" ]; then
-		ln -sf "%%DATADIR%%/plexdata/Plex Media Server/plexmediaserver.pid" /var/run/plex.pid
-	fi
 }
 
 plex_statuscmd()
