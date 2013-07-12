@@ -32,3 +32,7 @@ plexmediaserver_script_path="/usr/local/share/plexmediaserver" (optional)
 ```no-highlight
 pkg_add plexmediaserver-0.9.7.23.0.tbz
 ```
+
+### Special Thanks
+Elan (Plex Sheriff)
+Felderado (Plex FreeBSD)
