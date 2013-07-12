@@ -34,5 +34,7 @@ pkg_add plexmediaserver-0.9.7.23.0.tbz
 ```
 
 ### Special Thanks
+```no-highlight
 Elan (Plex Sheriff)
 Felderado (Plex FreeBSD)
+```
