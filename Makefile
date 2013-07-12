@@ -16,15 +16,19 @@ WRKSRC=	${WRKDIR}/PlexMediaServer-${PORTVERSION}-8e6b2a8
 USE_RC_SUBR=	plexmediaserver
 
 SUB_FILES=	plexmediaserver
-SUB_LIST=	SUPPORT_PATH=${SUPPORT_PATH} SCRIPT_PATH="${DATADIR}" USERS=${USERS}
+SUB_LIST=	SUPPORT_PATH=${SUPPORT_PATH} DATADIR="${DATADIR}" USERS=${USERS}
 
 USERS=	plex
 GROUPS=	plex
 SUPPORT_PATH?=	${DATADIR}/plexdata
 
-post-patch:
-	${REINPLACE_CMD} -e 's|%%SCRIPT_PATH%%|"${DATADIR}"|' ${PATCH_WRKSRC}/start.sh
-	${REINPLACE_CMD} -e 's|%%SUPPORT_PATH%%|"${SUPPORT_PATH}"|' ${PATCH_WRKSRC}/start.sh
+ONLY_FOR_ARCHS=	amd64
+
+.include <bsd.port.pre.mk>
+
+.if ${OSVERSION} < 900000
+	IGNORE= Supplied binaries compiled for FreeBSD 9
+.endif
 
 do-install:
 	(cd ${WRKSRC} && ${COPYTREE_SHARE} Resources ${DATADIR})
@@ -49,4 +53,4 @@ do-install:
 	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/Python/lib/python2.7/distutils
 	${INSTALL} -d ${PREFIX}/share/plexmediaserver/Resources/Python/lib/python2.7/bsddb
 
-.include <bsd.port.mk>
+.include <bsd.port.post.mk>

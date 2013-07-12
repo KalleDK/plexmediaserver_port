@@ -18,41 +18,59 @@ name=plexmediaserver
 rcvar=plexmediaserver_enable
 load_rc_config $name
 
+: ${plexmediaserver_enable:=NO}
 : ${plexmediaserver_support_path="%%SUPPORT_PATH%%"}
-: ${plexmediaserver_script_path="%%SCRIPT_PATH%%"}
 : ${plexmediaserver_user="%%USERS%%"}
 
-start_cmd=plexmediaserver_start
-status_cmd=plexmediaserver_status
-stop_cmd=plexmediaserver_stop
 extra_commands=status
-pidfile="${plexmediaserver_support_path}/Plex Media Server/plexmediaserver.pid"
+start_precmd=plex_precmd
+start_postcmd=plex_postcmd
+start_cmd=plex_startcmd
+status_cmd=plex_statuscmd
+stop_cmd=plex_stopcmd
+pidfile=/var/run/plex/plex.pid
 
-plexmediaserver_start()
+plex_precmd()
 {
-	if pgrep -q -F "${pidfile}" >/dev/null; then
-		echo "${name} already running with pid: $(cat "$pidfile")"
-	else
-		echo "Starting ${name}"
-		export HOME=$(eval printf ~${plexmediaserver_user})
-		daemon -u ${plexmediaserver_user} -f ${plexmediaserver_script_path}/start.sh ${plexmediaserver_support_path}
+	export SUPPORT_PATH="${plexmediaserver_support_path}"
+	export HOME="${SUPPORT_PATH}/Plex Media Server"
+	export SCRIPTPATH="%%DATADIR%%"
+	export LD_LIBRARY_PATH="${SCRIPTPATH}"
+	export PLEX_MEDIA_SERVER_HOME="${SCRIPTPATH}"
+	export PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS=6
+	export PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR=$SUPPORT_PATH
+	export PLEX_MEDIA_SERVER_PIDFILE=${pidfile}
+	export PATH="${SCRIPTPATH}/Resources/Python/bin:$PATH"
+	export LC_ALL="C"
+	export LANG="C"
+	ulimit -s 3000
+
+	if [ ! -d ${pidfile%/*} ]; then
+		install -d -o ${plexmediaserver_user} ${pidfile%/*};
 	fi
 }
 
-plexmediaserver_status()
+plex_startcmd()
 {
-	if pgrep -q -F "${pidfile}" >/dev/null; then
-		echo "${name} is running with pid: $(cat "${pidfile}")";
+	echo "Starting ${name}."
+	/usr/sbin/daemon -u %%USERS%% -f '%%DATADIR%%/Plex Media Server'
+}
+
+plex_statuscmd()
+{
+	if pgrep -F ${pidfile} >/dev/null; then
+		echo "${name} is running with pid: $(cat ${pidfile})";
 	else
 		echo "${name} is not running.";
 		exit 1;
-	fi
+	fi	
 }
 
-plexmediaserver_stop()
+plex_stopcmd()
 {
-        if pgrep -q -F "${pidfile}" >/dev/null; then
-		mypid=$(cat "${pidfile}");
+	if pgrep -F "${pidfile}" >/dev/null; then
+		mypid=$(cat ${pidfile});
+		sig_stop=-INT;
 		kill ${sig_stop} ${mypid};
 		wait_for_pids ${mypid};
 	else
