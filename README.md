@@ -7,7 +7,7 @@ plexmediaserver_port
 fetch -o plexmediaserver_port-1.4.tar.gz https://github.com/KalleDK/plexmediaserver_port/archive/v1.4.tar.gz
 tar zxvf plexmediaserver_port-1.4.tar.gz
 cd plexmediaserver_port-1.4
-make WITH_USER install
+make WITH_USER=YES install
 ```
 
 ###Make options
