@@ -3897,5 +3897,5 @@
 @dirrmtry %%DATADIR%%/Resources/Python/lib/python2.7/xml/etree
 @dirrmtry %%DATADIR%%/Resources/Python/lib/python2.7/xml/parsers
 @dirrmtry %%DATADIR%%/Resources/Python/lib/python2.7/xml/sax
-@dirrmtry %%DATADIR%%/plexdata
-@dirrmtry %%DATADIR%%/plexdata/Plex Media Server
+@dirrmtry %%PREFIX%%/plex
+@dirrmtry %%PREFIX%%/plex/Plex Media Server

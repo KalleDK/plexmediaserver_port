@@ -19,6 +19,8 @@ rcvar=plexmediaserver_enable
 load_rc_config $name
 
 : ${plexmediaserver_enable:=NO}
+: ${plexmediaserver_script_path:="%%DATADIR%%"}
+: ${plexmediaserver_support_path:="%%PREFIX%%/plex"}
 : ${plexmediaserver_user:="%%USERS%%"}
 
 extra_commands=status
@@ -30,15 +32,15 @@ pidfile=/var/run/plex/plex.pid
 
 plex_precmd()
 {
-	export SUPPORT_PATH="%%DATADIR%%/plexdata"
-	export HOME="${SUPPORT_PATH}/Plex Media Server"
-	export SCRIPTPATH="%%DATADIR%%"
+	export SUPPORT_PATH="${plexmediaserver_support_path}"
+	export HOME="${plexmediaserver_support_path}/Plex Media Server"
+	export SCRIPTPATH="${plexmediaserver_script_path}"
 	export LD_LIBRARY_PATH="${SCRIPTPATH}"
 	export PLEX_MEDIA_SERVER_HOME="${SCRIPTPATH}"
 	export PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS=6
-	export PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR=$SUPPORT_PATH
+	export PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR=${SUPPORT_PATH}
 	export PLEX_MEDIA_SERVER_PIDFILE=${pidfile}
-	export PATH="${SCRIPTPATH}/Resources/Python/bin:$PATH"
+	export PATH="${SCRIPTPATH}/Resources/Python/bin:${PATH}"
 	export LC_ALL="C"
 	export LANG="C"
 	ulimit -s 3000
