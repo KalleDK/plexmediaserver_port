@@ -3788,7 +3788,3 @@
 @dirrm %%DATADIR%%/Resources/English.lproj
 @dirrm %%DATADIR%%/Resources
 @dirrm %%DATADIR%%
-@exec mkdir -p %D/plexdata/Plex Media Server
-@dirrmtry /plexdata/Plex Media Server
-@exec mkdir -p %D/plexdata
-@dirrmtry /plexdata
