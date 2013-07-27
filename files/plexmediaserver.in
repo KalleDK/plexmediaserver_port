@@ -33,7 +33,7 @@ plex_precmd()
 {
 	export SUPPORT_PATH="${plexmediaserver_support_path}"
 	export HOME="${SUPPORT_PATH}/Plex Media Server"
-	export SCRIPTPATH="%%DATADIR%%"
+	export SCRIPTPATH="%%SCRIPT_PATH%%"
 	export LD_LIBRARY_PATH="${SCRIPTPATH}"
 	export PLEX_MEDIA_SERVER_HOME="${SCRIPTPATH}"
 	export PLEX_MEDIA_SERVER_MAX_PLUGIN_PROCS=6
@@ -52,12 +52,12 @@ plex_precmd()
 plex_startcmd()
 {
 	echo "Starting ${name}."
-	/usr/sbin/daemon -u %%USERS%% -f '%%DATADIR%%/Plex Media Server'
+	/usr/sbin/daemon -u %%USERS%% -f '%%SCRIPT_PATH%%/Plex Media Server'
 }
 
 plex_statuscmd()
 {
-	if pgrep -F ${pidfile} >/dev/null; then
+	if pgrep -F ${pidfile} Plex >/dev/null; then
 		echo "${name} is running with pid: $(cat ${pidfile})";
 	else
 		echo "${name} is not running.";
@@ -67,11 +67,14 @@ plex_statuscmd()
 
 plex_stopcmd()
 {
-	if pgrep -F "${pidfile}" >/dev/null; then
-		mypid=$(cat ${pidfile});
-		sig_stop=-INT;
-		kill ${sig_stop} ${mypid};
-		wait_for_pids ${mypid};
+	if pgrep -F "${pidfile}" Plex >/dev/null; then
+		main_pid=$(cat ${pidfile});
+		child_pids=$(pgrep -P ${main_pid});
+		all_pids="${main_pid} ${child_pids}"
+		sig_stop=-QUIT;
+		kill ${sig_stop} ${all_pids};
+		wait_for_pids ${all_pids};
+		rm ${pidfile}
 	else
 		echo "${name} is not running.";
 		exit 1;
