@@ -16,7 +16,7 @@ WRKSRC=	${WRKDIR}/PlexMediaServer-${PORTVERSION}-0cbd4f7
 USE_RC_SUBR=	plexmediaserver
 
 SUB_FILES=	plexmediaserver
-SUB_LIST=	SUPPORT_PATH=${SUPPORT_PATH} SCRIPT_PATH="${SCRIPT_PATH}" USERS=${USERS}
+SUB_LIST=	SUPPORT_PATH=${SUPPORT_PATH} SCRIPT_PATH="${SCRIPT_PATH}" USERS=${USERS} GROUPS=${GROUPS}
 
 USERS=	plex
 GROUPS=	plex
@@ -31,10 +31,6 @@ ONLY_FOR_ARCHS=	amd64
 .if ${OSVERSION} < 900000
 	IGNORE= Supplied binaries compiled for FreeBSD 9
 .endif
-
-pre-install:
-PLIST_SUB=	SCRIPT_PATH="${SCRIPT_PATH}" SUPPORT_PATH=${SUPPORT_PATH}
-
 
 do-install:
 	(cd ${WRKSRC} && ${COPYTREE_SHARE} Resources ${SCRIPT_PATH})
@@ -51,8 +47,6 @@ do-install:
 	${CHMOD} u+w ${SCRIPT_PATH}/Resources/com.plexapp.plugins.library.db
 	# Python fix
 	${LN} -s ${SCRIPT_PATH}/libpython2.7.so.1 ${SCRIPT_PATH}/libpython2.7.so
-	# Support Path (Where the Library is)
-	${INSTALL} -d -o ${USERS} -g ${GROUPS} "${SUPPORT_PATH}/Plex Media Server"
 	# Empty Directories
 	${INSTALL} -d ${SCRIPT_PATH}/Resources/English.lproj
 	${INSTALL} -d ${SCRIPT_PATH}/Resources/Python/lib/python2.7/test
