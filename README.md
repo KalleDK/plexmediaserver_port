@@ -37,4 +37,5 @@ pkg_add plexmediaserver-0.9.7.23.0.tbz
 ```no-highlight
 Elan (Plex Sheriff)
 Felderado (Plex FreeBSD)
+ZiGGiMoN (Plex Ninja)
 ```
