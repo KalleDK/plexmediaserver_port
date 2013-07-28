@@ -56,7 +56,5 @@ do-install:
 	${INSTALL} -d ${SCRIPT_PATH}/Resources/Python/lib/python2.7/email/test
 	${INSTALL} -d ${SCRIPT_PATH}/Resources/Python/lib/python2.7/distutils
 	${INSTALL} -d ${SCRIPT_PATH}/Resources/Python/lib/python2.7/bsddb
-	# Install PID dir (Don't know if needed)
-	${INSTALL} -d -o ${USERS} -g ${GROUPS} "/var/run/plex"
 
 .include <bsd.port.post.mk>
