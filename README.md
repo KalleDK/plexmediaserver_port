@@ -4,18 +4,15 @@ plexmediaserver_port
 ##Install
 
 ```no-highlight
-fetch -o plexmediaserver_port-1.4.tar.gz https://github.com/KalleDK/plexmediaserver_port/archive/v1.4.tar.gz
-tar zxvf plexmediaserver_port-1.4.tar.gz
-cd plexmediaserver_port-1.4
-make WITH_USER install
+fetch http://plexrpms.markwalker.dk/FreeBSD-PMS/plexmediaserver-0.9.8.4.116.tbz
+pkg_add plexmediaserver-0.9.8.4.116.tbz
 ```
 
 ###Make options
 ######(Shown here with default paths)
 
 ```no-highlight
-SUPPORT_PATH=/usr/local/lib/plexdata
-WITH_USER=NO
+SUPPORT_PATH=/usr/local/plexdata
 ```
 
 ###RC_VAR
@@ -23,12 +20,19 @@ WITH_USER=NO
 
 ```no-highlight
 plexmediaserver_enable="YES"
-plexmediaserver_support_path="/usr/local/lib/plexdata"  (optional)
-plexmediaserver_script_path="/usr/local/share/plexmediaserver" (optional)
+plexmediaserver_support_path="/usr/local/plexdata"  (optional)
 ```
 
 ###Package install
 
 ```no-highlight
-pkg_add plexmediaserver-0.9.7.23.0.tbz
+fetch http://plexrpms.markwalker.dk/FreeBSD-PMS/plexmediaserver-0.9.8.4.116.tbz
+pkg_add plexmediaserver-0.9.8.4.116.tbz
+```
+
+### Special Thanks
+```no-highlight
+Elan (Plex Sheriff)
+Felderado (Plex FreeBSD)
+ZiGGiMoN (Plex Ninja)
 ```
