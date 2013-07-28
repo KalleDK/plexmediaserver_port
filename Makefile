@@ -40,13 +40,13 @@ do-install:
 	${INSTALL_SCRIPT} ${WRKSRC}/start.sh ${SCRIPT_PATH}
 	${INSTALL_LIB} ${WRKSRC}/lib* ${SCRIPT_PATH}
 	# Fix permissions to programs and db
-	${CHMOD} a+x ${SCRIPT_PATH}/Resources/rsync
-	${CHMOD} a+x ${SCRIPT_PATH}/Resources/Plex\ New\ Transcoder
-	${CHMOD} a+x ${SCRIPT_PATH}/Resources/Plex\ Transcoder
-	${CHMOD} a+x ${SCRIPT_PATH}/Resources/Python/bin/python
-	${CHMOD} u+w ${SCRIPT_PATH}/Resources/com.plexapp.plugins.library.db
+	@${CHMOD} a+x ${SCRIPT_PATH}/Resources/rsync
+	@${CHMOD} a+x ${SCRIPT_PATH}/Resources/Plex\ New\ Transcoder
+	@${CHMOD} a+x ${SCRIPT_PATH}/Resources/Plex\ Transcoder
+	@${CHMOD} a+x ${SCRIPT_PATH}/Resources/Python/bin/python
+	@${CHMOD} u+w ${SCRIPT_PATH}/Resources/com.plexapp.plugins.library.db
 	# Python fix
-	${LN} -s ${SCRIPT_PATH}/libpython2.7.so.1 ${SCRIPT_PATH}/libpython2.7.so
+	@${LN} -s ${SCRIPT_PATH}/libpython2.7.so.1 ${SCRIPT_PATH}/libpython2.7.so
 	# Empty Directories
 	${INSTALL} -d ${SCRIPT_PATH}/Resources/English.lproj
 	${INSTALL} -d ${SCRIPT_PATH}/Resources/Python/lib/python2.7/test

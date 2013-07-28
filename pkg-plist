@@ -3784,7 +3784,7 @@
 @dirrm %%DATADIR%%/Resources/Plug-ins/Framework.bundle
 @dirrm %%DATADIR%%/Resources/Plug-ins
 @dirrm %%DATADIR%%/Resources/Graphics
-@exec mkdir -p %D/%%DATADIR%%/Resources/English.lproj
 @dirrm %%DATADIR%%/Resources/English.lproj
 @dirrm %%DATADIR%%/Resources
 @dirrm %%DATADIR%%
+@dirrmtry /var/run/plex
