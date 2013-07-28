@@ -4,7 +4,7 @@
 PORTNAME=	plexmediaserver
 PORTVERSION=	0.9.8.4.116
 CATEGORIES=	multimedia
-MASTER_SITES=	http://plexrpms.markwalker.dk/FreeBSD-PMS/
+MASTER_SITES=	http://www.plexapp.com/elan/
 DISTFILES=	PlexMediaServer-${PORTVERSION}-0cbd4f7-freebsd-amd64.tar.bz2
 
 MAINTAINER=	plexmaintainer@k-moeller.dk
