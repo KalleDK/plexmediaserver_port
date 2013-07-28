@@ -33,20 +33,20 @@ ONLY_FOR_ARCHS=	amd64
 .endif
 
 do-install:
-	(cd ${WRKSRC} && ${COPYTREE_SHARE} Resources ${SCRIPT_PATH})
+	@(cd ${WRKSRC} && ${COPYTREE_SHARE} Resources ${SCRIPT_PATH})
 	${INSTALL_PROGRAM} ${WRKSRC}/Plex\ DLNA\ Server ${SCRIPT_PATH}
 	${INSTALL_PROGRAM} ${WRKSRC}/Plex\ Media\ Scanner ${SCRIPT_PATH}
 	${INSTALL_PROGRAM} ${WRKSRC}/Plex\ Media\ Server ${SCRIPT_PATH}
 	${INSTALL_SCRIPT} ${WRKSRC}/start.sh ${SCRIPT_PATH}
 	${INSTALL_LIB} ${WRKSRC}/lib* ${SCRIPT_PATH}
 	# Fix permissions to programs and db
-	${CHMOD} a+x ${SCRIPT_PATH}/Resources/rsync
-	${CHMOD} a+x ${SCRIPT_PATH}/Resources/Plex\ New\ Transcoder
-	${CHMOD} a+x ${SCRIPT_PATH}/Resources/Plex\ Transcoder
-	${CHMOD} a+x ${SCRIPT_PATH}/Resources/Python/bin/python
-	${CHMOD} u+w ${SCRIPT_PATH}/Resources/com.plexapp.plugins.library.db
+	@${CHMOD} a+x ${SCRIPT_PATH}/Resources/rsync
+	@${CHMOD} a+x ${SCRIPT_PATH}/Resources/Plex\ New\ Transcoder
+	@${CHMOD} a+x ${SCRIPT_PATH}/Resources/Plex\ Transcoder
+	@${CHMOD} a+x ${SCRIPT_PATH}/Resources/Python/bin/python
+	@${CHMOD} u+w ${SCRIPT_PATH}/Resources/com.plexapp.plugins.library.db
 	# Python fix
-	${LN} -s ${SCRIPT_PATH}/libpython2.7.so.1 ${SCRIPT_PATH}/libpython2.7.so
+	@${LN} -s ${SCRIPT_PATH}/libpython2.7.so.1 ${SCRIPT_PATH}/libpython2.7.so
 	# Empty Directories
 	${INSTALL} -d ${SCRIPT_PATH}/Resources/English.lproj
 	${INSTALL} -d ${SCRIPT_PATH}/Resources/Python/lib/python2.7/test
@@ -56,7 +56,5 @@ do-install:
 	${INSTALL} -d ${SCRIPT_PATH}/Resources/Python/lib/python2.7/email/test
 	${INSTALL} -d ${SCRIPT_PATH}/Resources/Python/lib/python2.7/distutils
 	${INSTALL} -d ${SCRIPT_PATH}/Resources/Python/lib/python2.7/bsddb
-	# Install PID dir (Don't know if needed)
-	${INSTALL} -d -o ${USERS} -g ${GROUPS} "/var/run/plex"
 
 .include <bsd.port.post.mk>
