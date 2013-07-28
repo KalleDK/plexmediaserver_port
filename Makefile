@@ -33,7 +33,7 @@ ONLY_FOR_ARCHS=	amd64
 .endif
 
 do-install:
-	(cd ${WRKSRC} && ${COPYTREE_SHARE} Resources ${SCRIPT_PATH})
+	@(cd ${WRKSRC} && ${COPYTREE_SHARE} Resources ${SCRIPT_PATH})
 	${INSTALL_PROGRAM} ${WRKSRC}/Plex\ DLNA\ Server ${SCRIPT_PATH}
 	${INSTALL_PROGRAM} ${WRKSRC}/Plex\ Media\ Scanner ${SCRIPT_PATH}
 	${INSTALL_PROGRAM} ${WRKSRC}/Plex\ Media\ Server ${SCRIPT_PATH}
