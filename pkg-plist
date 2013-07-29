@@ -3781,3 +3781,11 @@
 @dirrm %%DATADIR%%/Resources/English.lproj
 @dirrm %%DATADIR%%/Resources
 @dirrm %%DATADIR%%
+@exec install -d %%SCRIPT_PATH%%/Resources/English.lproj
+@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/test
+@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/lib-tk
+@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/lib-old
+@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/idlelib
+@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/email/test
+@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/distutils
+@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/bsddb

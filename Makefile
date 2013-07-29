@@ -23,7 +23,6 @@ GROUPS=	plex
 SUPPORT_PATH?=	${PREFIX}/plexdata
 SCRIPT_PATH?=	${DATADIR}
 
-
 ONLY_FOR_ARCHS=	amd64
 
 .include <bsd.port.pre.mk>
@@ -47,14 +46,5 @@ do-install:
 	@${CHMOD} u+w ${SCRIPT_PATH}/Resources/com.plexapp.plugins.library.db
 	# Python fix
 	@${LN} -s ${SCRIPT_PATH}/libpython2.7.so.1 ${SCRIPT_PATH}/libpython2.7.so
-	# Empty Directories
-	${INSTALL} -d ${SCRIPT_PATH}/Resources/English.lproj
-	${INSTALL} -d ${SCRIPT_PATH}/Resources/Python/lib/python2.7/test
-	${INSTALL} -d ${SCRIPT_PATH}/Resources/Python/lib/python2.7/lib-tk
-	${INSTALL} -d ${SCRIPT_PATH}/Resources/Python/lib/python2.7/lib-old
-	${INSTALL} -d ${SCRIPT_PATH}/Resources/Python/lib/python2.7/idlelib
-	${INSTALL} -d ${SCRIPT_PATH}/Resources/Python/lib/python2.7/email/test
-	${INSTALL} -d ${SCRIPT_PATH}/Resources/Python/lib/python2.7/distutils
-	${INSTALL} -d ${SCRIPT_PATH}/Resources/Python/lib/python2.7/bsddb
 
 .include <bsd.port.post.mk>
