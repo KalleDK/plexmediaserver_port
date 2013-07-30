@@ -19,9 +19,9 @@ rcvar=plexmediaserver_enable
 load_rc_config $name
 
 : ${plexmediaserver_enable:=NO}
-: ${plexmediaserver_support_path:="%%SUPPORT_PATH%%"}
-: ${plexmediaserver_user:="%%USERS%%"}
-: ${plexmediaserver_group:="%%GROUPS%%"}
+: ${plexmediaserver_support_path="%%SUPPORT_PATH%%"}
+: ${plexmediaserver_user="%%USERS%%"}
+: ${plexmediaserver_group="%%GROUPS%%"}
 
 extra_commands=status
 start_precmd=plex_precmd
