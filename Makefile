@@ -2,16 +2,16 @@
 # $FreeBSD$
 
 PORTNAME=	plexmediaserver
-PORTVERSION=	0.9.8.4.116
+PORTVERSION=	0.9.8.4.125
 CATEGORIES=	multimedia
-MASTER_SITES=	http://www.plexapp.com/elan/
-DISTFILES=	PlexMediaServer-${PORTVERSION}-0cbd4f7-freebsd-amd64.tar.bz2
+MASTER_SITES=	http://plex.r.worldssl.net/plex-media-server/0.9.8.4.125-ffe2a5d/
+DISTFILES=	PlexMediaServer-${PORTVERSION}-ffe2a5d-freebsd-amd64.tar.bz2
 
 MAINTAINER=	plexmaintainer@k-moeller.dk
 COMMENT=	Plex Media Server
 
 NO_BUILD=	yes
-WRKSRC=	${WRKDIR}/PlexMediaServer-${PORTVERSION}-0cbd4f7
+WRKSRC=	${WRKDIR}/PlexMediaServer-${PORTVERSION}-ffe2a5d
 
 USE_RC_SUBR=	plexmediaserver
 
