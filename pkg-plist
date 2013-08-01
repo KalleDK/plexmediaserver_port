@@ -2982,10 +2982,6 @@
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/lib2to3/fixes
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/lib2to3
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/lib-tk
-<<<<<<< HEAD
-@dirrm %%DATADIR%%/Resources/Python/lib/python2.7/lib-old
-=======
->>>>>>> b82583954f1ab09bbcd4ca532c191068117f2f82
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/lib-dynload
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/json/tests
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/json
@@ -3794,16 +3790,6 @@
 @dirrm %%DATADIR%%/Resources/English.lproj
 @dirrm %%DATADIR%%/Resources
 @dirrm %%DATADIR%%
-<<<<<<< HEAD
-@exec install -d %%SCRIPT_PATH%%/Resources/English.lproj
-@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/test
-@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/lib-tk
-@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/lib-old
-@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/idlelib
-@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/email/test
-@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/distutils
-@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/bsddb
-=======
 @exec install -d %D/%%DATADIR%%/Resources/English.lproj
 @exec install -d %D/%%DATADIR%%/Resources/Python/lib/python2.7/test
 @exec install -d %D/%%DATADIR%%/Resources/Python/lib/python2.7/lib-tk
@@ -3811,4 +3797,3 @@
 @exec install -d %D/%%DATADIR%%/Resources/Python/lib/python2.7/email/test
 @exec install -d %D/%%DATADIR%%/Resources/Python/lib/python2.7/distutils
 @exec install -d %D/%%DATADIR%%/Resources/Python/lib/python2.7/bsddb
->>>>>>> b82583954f1ab09bbcd4ca532c191068117f2f82
