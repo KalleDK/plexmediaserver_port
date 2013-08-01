@@ -4,8 +4,8 @@ plexmediaserver_port
 ##Install
 
 ```no-highlight
-fetch http://plexrpms.markwalker.dk/FreeBSD-PMS/plexmediaserver-0.9.8.4.116.tbz
-pkg_add plexmediaserver-0.9.8.4.116.tbz
+fetch http://plexrpms.markwalker.dk/FreeBSD-PMS/plexmediaserver-0.9.8.4.125.tbz
+pkg_add plexmediaserver-0.9.8.4.125.tbz
 ```
 
 ###Make options
@@ -26,8 +26,8 @@ plexmediaserver_support_path="/usr/local/plexdata"  (optional)
 ###Package install
 
 ```no-highlight
-fetch http://plexrpms.markwalker.dk/FreeBSD-PMS/plexmediaserver-0.9.8.4.116.tbz
-pkg_add plexmediaserver-0.9.8.4.116.tbz
+fetch http://plexrpms.markwalker.dk/FreeBSD-PMS/plexmediaserver-0.9.8.4.125.tbz
+pkg_add plexmediaserver-0.9.8.4.125.tbz
 ```
 
 ### Special Thanks
