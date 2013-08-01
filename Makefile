@@ -1,5 +1,5 @@
 # Created by: KalleDK <plexmaintainer@k-moeller.dk>
-# $FreeBSD: feld/multimedia/plexmediaserver/Makefile 15195 2013-08-01 15:20:56Z feld $
+# $FreeBSD$
 
 PORTNAME=	plexmediaserver
 PORTVERSION=	0.9.8.4.125
