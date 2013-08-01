@@ -3790,10 +3790,10 @@
 @dirrm %%DATADIR%%/Resources/English.lproj
 @dirrm %%DATADIR%%/Resources
 @dirrm %%DATADIR%%
-@exec mkdir -p %D/%%DATADIR%%/Resources/English.lproj
-@exec mkdir -p %D/%%DATADIR%%/Resources/Python/lib/python2.7/test
-@exec mkdir -p %D/%%DATADIR%%/Resources/Python/lib/python2.7/lib-tk
-@exec mkdir -p %D/%%DATADIR%%/Resources/Python/lib/python2.7/idlelib
-@exec mkdir -p %D/%%DATADIR%%/Resources/Python/lib/python2.7/email/test
-@exec mkdir -p %D/%%DATADIR%%/Resources/Python/lib/python2.7/distutils
-@exec mkdir -p %D/%%DATADIR%%/Resources/Python/lib/python2.7/bsddb
+@exec install -d %D/%%DATADIR%%/Resources/English.lproj
+@exec install -d %D/%%DATADIR%%/Resources/Python/lib/python2.7/test
+@exec install -d %D/%%DATADIR%%/Resources/Python/lib/python2.7/lib-tk
+@exec install -d %D/%%DATADIR%%/Resources/Python/lib/python2.7/idlelib
+@exec install -d %D/%%DATADIR%%/Resources/Python/lib/python2.7/email/test
+@exec install -d %D/%%DATADIR%%/Resources/Python/lib/python2.7/distutils
+@exec install -d %D/%%DATADIR%%/Resources/Python/lib/python2.7/bsddb
