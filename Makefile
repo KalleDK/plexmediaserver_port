@@ -4,12 +4,14 @@
 PORTNAME=	plexmediaserver
 PORTVERSION=	0.9.8.4.125
 CATEGORIES=	multimedia
-MASTER_SITES=	http://plex.r.worldssl.net/plex-media-server/0.9.8.4.125-ffe2a5d/
-DISTFILES=	PlexMediaServer-${PORTVERSION}-ffe2a5d-freebsd-amd64.tar.bz2
+MASTER_SITES=	http://plex.r.worldssl.net/plex-media-server/${PORTVERSION}-${PLEX_BUILD}/
+DISTNAME=	PlexMediaServer-${PORTVERSION}-${PLEX_BUILD}-freebsd-amd64
 
 MAINTAINER=	plexmaintainer@k-moeller.dk
 COMMENT=	Plex Media Server
 
+USE_BZIP2=	yes
+PLEX_BUILD=	ffe2a5d
 NO_BUILD=	yes
 WRKSRC=	${WRKDIR}/PlexMediaServer-${PORTVERSION}-ffe2a5d
 
