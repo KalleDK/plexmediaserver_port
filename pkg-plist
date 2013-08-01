@@ -2947,7 +2947,6 @@
 %%DATADIR%%/libz.so.1
 %%DATADIR%%/libzen.so.0
 %%DATADIR%%/start.sh
-@dirrmtry /var/run/plex
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/xml/sax
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/xml/parsers
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/xml/etree
