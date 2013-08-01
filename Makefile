@@ -1,5 +1,5 @@
 # Created by: KalleDK <plexmaintainer@k-moeller.dk>
-# $FreeBSD$
+# $FreeBSD: feld/multimedia/plexmediaserver/Makefile 15195 2013-08-01 15:20:56Z feld $
 
 PORTNAME=	plexmediaserver
 PORTVERSION=	0.9.8.4.125
@@ -30,7 +30,7 @@ ONLY_FOR_ARCHS=	amd64
 .include <bsd.port.pre.mk>
 
 .if ${OSVERSION} < 900000
-	IGNORE= Supplied binaries compiled for FreeBSD 9
+IGNORE= supplied binaries compiled for FreeBSD 9
 .endif
 
 do-install:
