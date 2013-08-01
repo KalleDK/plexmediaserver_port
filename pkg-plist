@@ -2943,6 +2943,7 @@
 %%DATADIR%%/libz.so.1
 %%DATADIR%%/libzen.so.0
 %%DATADIR%%/start.sh
+@dirrmtry /var/run/plex
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/xml/sax
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/xml/parsers
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/xml/etree
@@ -2951,7 +2952,6 @@
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/wsgiref
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/unittest/test
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/unittest
-@exec mkdir -p %D/%%DATADIR%%/Resources/Python/lib/python2.7/test
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/test
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/sqlite3/test
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/sqlite3
@@ -2977,23 +2977,18 @@
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/lib2to3/pgen2
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/lib2to3/fixes
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/lib2to3
-@exec mkdir -p %D/%%DATADIR%%/Resources/Python/lib/python2.7/lib-tk
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/lib-tk
-@exec mkdir -p %D/%%DATADIR%%/Resources/Python/lib/python2.7/lib-old
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/lib-old
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/lib-dynload
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/json/tests
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/json
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/importlib
-@exec mkdir -p %D/%%DATADIR%%/Resources/Python/lib/python2.7/idlelib
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/idlelib
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/hotshot
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/encodings
-@exec mkdir -p %D/%%DATADIR%%/Resources/Python/lib/python2.7/email/test
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/email/test
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/email/mime
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/email
-@exec mkdir -p %D/%%DATADIR%%/Resources/Python/lib/python2.7/distutils
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/distutils
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/curses
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/ctypes/test
@@ -3001,7 +2996,6 @@
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/ctypes
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/config
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/compiler
-@exec mkdir -p %D/%%DATADIR%%/Resources/Python/lib/python2.7/bsddb
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7/bsddb
 @dirrm %%DATADIR%%/Resources/Python/lib/python2.7
 @dirrm %%DATADIR%%/Resources/Python/lib
@@ -3784,7 +3778,14 @@
 @dirrm %%DATADIR%%/Resources/Plug-ins/Framework.bundle
 @dirrm %%DATADIR%%/Resources/Plug-ins
 @dirrm %%DATADIR%%/Resources/Graphics
-@exec mkdir -p %D/%%DATADIR%%/Resources/English.lproj
 @dirrm %%DATADIR%%/Resources/English.lproj
 @dirrm %%DATADIR%%/Resources
 @dirrm %%DATADIR%%
+@exec install -d %%SCRIPT_PATH%%/Resources/English.lproj
+@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/test
+@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/lib-tk
+@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/lib-old
+@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/idlelib
+@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/email/test
+@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/distutils
+@exec install -d %%SCRIPT_PATH%%/Resources/Python/lib/python2.7/bsddb
