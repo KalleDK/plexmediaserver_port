@@ -1,7 +1,7 @@
 plexmediaserver_port
 ====================
 
-##Install
+##Install from package
 
 ```no-highlight
 fetch http://plexrpms.markwalker.dk/FreeBSD-PMS/plexmediaserver-0.9.8.4.125.tbz
