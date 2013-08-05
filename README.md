@@ -1,7 +1,7 @@
 plexmediaserver_port
 ====================
 
-##Install
+##Install from package
 
 ```no-highlight
 fetch http://plexrpms.markwalker.dk/FreeBSD-PMS/plexmediaserver-0.9.8.4.125.tbz
@@ -21,18 +21,13 @@ SUPPORT_PATH=/usr/local/plexdata
 ```no-highlight
 plexmediaserver_enable="YES"
 plexmediaserver_support_path="/usr/local/plexdata"  (optional)
-```
-
-###Package install
-
-```no-highlight
-fetch http://plexrpms.markwalker.dk/FreeBSD-PMS/plexmediaserver-0.9.8.4.125.tbz
-pkg_add plexmediaserver-0.9.8.4.125.tbz
+plexmediaserver_tmp="/tmp" (optional)
 ```
 
 ### Special Thanks
 ```no-highlight
 Elan (Plex Sheriff)
-Felderado (Plex FreeBSD)
+Feld (Plex FreeBSD)
 ZiGGiMoN (Plex Ninja)
+KalleDK (original port author)
 ```
