@@ -27,11 +27,7 @@ load_rc_config $name
 : ${plexmediaserver_user="%%USERS%%"}
 : ${plexmediaserver_group="%%GROUPS%%"}
 
-extra_commands=status
 start_precmd=plex_precmd
-start_cmd=plex_startcmd
-status_cmd=plex_statuscmd
-stop_cmd=plex_stopcmd
 pidfile=/var/run/plex/plex.pid
 
 plex_precmd()
@@ -60,40 +56,7 @@ plex_precmd()
 	fi
 }
 
-plex_startcmd()
-{
-	if [ -f "${pidfile}" ] && (pgrep -F ${pidfile} Plex >/dev/null); then
-		echo "${name} is already running with pid: $(cat ${pidfile})";
-	else
-		echo "Starting ${name}."
-		/usr/sbin/daemon -u ${plexmediaserver_user} -f '%%SCRIPT_PATH%%/Plex Media Server'
-	fi
-}
-
-plex_statuscmd()
-{
-	if [ -f "${pidfile}" ] && (pgrep -F ${pidfile} Plex >/dev/null); then
-		echo "${name} is running with pid: $(cat ${pidfile})";
-	else
-		echo "${name} is not running.";
-		exit 1;
-	fi	
-}
-
-plex_stopcmd()
-{
-	if [ -f "${pidfile}" ] && (pgrep -F ${pidfile} Plex >/dev/null); then
-		main_pid=$(cat ${pidfile});
-		child_pids=$(pgrep -P ${main_pid});
-		all_pids="${main_pid} ${child_pids}"
-		sig_stop=-QUIT;
-		kill ${sig_stop} ${all_pids};
-		wait_for_pids ${all_pids};
-		rm ${pidfile}
-	else
-		echo "${name} is not running.";
-		exit 1;
-	fi
-}
+command="'%%SCRIPT_PATH%%/Plex Media Server'"
+command_args=">/dev/null 2>&1 &"
 
 run_rc_command "$1"
