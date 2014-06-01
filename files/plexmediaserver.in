@@ -56,7 +56,7 @@ plex_precmd()
 	fi
 }
 
-command="'%%SCRIPT_PATH%%/Plex Media Server'"
+command="%%SCRIPT_PATH%%/Plex_Media_Server"
 command_args=">/dev/null 2>&1 &"
 
 run_rc_command "$1"

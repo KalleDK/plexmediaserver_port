@@ -48,5 +48,8 @@ do-install:
 	@${CHMOD} u+w ${SCRIPT_PATH}/Resources/com.plexapp.plugins.library.db
 	# Python fix
 	@${LN} -s ${SCRIPT_PATH}/libpython2.7.so.1 ${SCRIPT_PATH}/libpython2.7.so
+	# Fix binary name
+	@${LN} -s ${SCRIPT_PATH}/Plex\ Media\ Server ${SCRIPT_PATH}/Plex_Media_Server
+
 
 .include <bsd.port.post.mk>
